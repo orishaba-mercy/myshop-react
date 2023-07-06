@@ -1,6 +1,6 @@
 import React,{useState}from "react";
 import './style.css'
-// import React from "react-router-dom";
+import { } from "react-router-dom";
 
 const Login=()=>{
     const[username,setuserName]=useState('');
@@ -49,8 +49,6 @@ const Login=()=>{
         <button type="Submit">Login</button>
         </form>
        </div>
-    )
-
-    
+    )   
 }
 export default Login;

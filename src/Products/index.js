@@ -1,4 +1,6 @@
 import React,{useEffect,useState}from "react";
+import { }from "react-router-dom"
+import'./style.css'
 
 const Products=()=>{ 
     const[products,setProducts]=useState([]);
@@ -16,7 +18,7 @@ const Products=()=>{
         try{
             const response =await fetch('https://dummyjson.com/products')
             const result =await response.json();
-            setProducts(result.products);
+            setProducts(result.Products);
             setLoading(false);
         }
         catch(error){
@@ -31,9 +33,9 @@ const Products=()=>{
             <br/> 
             <br/> 
         <div className="details">
-        <h2>List of Products</h2>{products.map(item=>(
+        <h2>List of Products</h2>{Products.map(item=>(
             <div className="each" key={item.id}>
-                <img className="img" src="{item.thumbnail}" alt="visual of products"></img>
+                <img className="img" src="{item.thumbnail}" alt="visual of Products"></img>
 
                 <h3>{item.title}</h3>
                 <h3>{item.price}</h3>

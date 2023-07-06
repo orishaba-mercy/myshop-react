@@ -1,19 +1,20 @@
-
 import './App.css';
-import login from './Login';
-import products from'./Products';
-import navBar from './NavBar';
-import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import Products from'./Products';
+import Login from './Login';
+import NavBar from './NavBar';
+import Productsdetails from './Productsdetails';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 
 
 function App() {
   return (
     <div>
-      <navBar/>
+      <NavBar/>
+     
       <BrowserRouter>
       <Routes>
-       <Route path='/products' element={<Products/>}/>
-       {/* <Route path='/productDetails'element={<ProductDetails/>}/> */}
+       <Route path='/Products' element={<Products/>}/>
+       <Route path='/Productdetails/:id'element={<productdetails/>}/>
        <Route path='/login' element={<Login/>}/>
         </Routes>
         </BrowserRouter>
