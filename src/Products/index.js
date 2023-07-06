@@ -27,13 +27,25 @@ const Products=()=>{
         return <h2>Loading...</h2>
     }
     return(
-        <div>
+        <div> 
+            <br/> 
+            <br/> 
+        <div className="details">
         <h2>List of Products</h2>{products.map(item=>(
-            <div key={item.id}>
+            <div className="each" key={item.id}>
+                <img className="img" src="{item.thumbnail}" alt="visual of products"></img>
+
                 <h3>{item.title}</h3>
+                <h3>{item.price}</h3>
+                <h3>{item.discountPercentage}%</h3>
+                <img src={item.thumbnail} alt=""></img>
+                <button>More Here</button>
+            
+                
 
             </div>
         ))}
+        </div>
         </div>
     )
        
