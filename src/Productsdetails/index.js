@@ -1,57 +1,34 @@
-
-import React,{useEffect,useState}from "react";
-import { useParams}from "react-router-dom"
-import'./style.css'
-
-
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 const ProductDetails = () => {
-    const { id } = useParams();
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      getProducts();
-    }, []);
-  
-    const getProducts = async () => {
+  const {productId} = useParams();
+  const [product, setProduct] = useState(null);
+  useEffect(() => {
+    const details = async () => {
       try {
-        const response = await fetch('https://dummyjson.com/products');
-        const result = await response.json();
-        setProducts(result.Products);
-        setLoading(false);
+        const response = await fetch(`https://dummyjson.com/product/${productId}`);
+        const data = await response.json();
+        setProduct(data);
       } catch (error) {
-        console.log(error.message);
+        console.error(error);
       }
     };
-  
-    if (loading) {
-      return <h2>Loading...</h2>;
-    }
-  
-    return (
+    details();
+  }, [productId]);
+  if (!product) {
+    return <p>Loading ...</p>;
+  }
+  return (
+    <div>
+      <h1>Product Details</h1>
       <div>
-        <br />
-        <br />
-        <div className="details">
-          <h2>List of Products</h2>
-          {products.map(item => (
-            <div className="each" key={item.id}>
-              <img className="img" src={item.thumbnail} alt="visual of Products" />
-  
-              <h3>{item.title}</h3>
-              <h3>{item.price}</h3>
-              <h3>{item.discountPercentage}%</h3>
-              <img src={item.thumbnail} alt="" />
-              <button>More Here</button>
-            </div>
-          ))}
-        </div>
+        <img src={product.thumbnail} alt={product.title} />
+        <h2>{product.title}</h2>
+        <p>{product.brand}</p>
+        <p>{product.price}</p>
+        <h4>{product.rating}</h4>
       </div>
-    );
-  };
-  
-  export default ProductDetails;
-
-
-
+    </div>
+  );
+};
+export default ProductDetails;

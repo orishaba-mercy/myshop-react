@@ -1,0 +1,11 @@
+.nav {
+    display: grid;
+    grid-template-columns: repeat();
+
+}
+.nav a{
+    text-decoration: none; 
+    margin-left: 10%;
+    font-size: 30px;
+
+}

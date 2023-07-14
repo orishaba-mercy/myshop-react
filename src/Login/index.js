@@ -1,6 +1,6 @@
 import React,{useState}from "react";
 import './style.css'
-import { } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const Login=()=>{
     const[username,setuserName]=useState('');
@@ -35,9 +35,7 @@ const Login=()=>{
         <form className="form" onSubmit={handleSubmit}>
         <h1> Login</h1>
         <input placeholder="Enter UserName" type="text" 
-        onChange={(e)=>(setuserName(e.target.value))}
-
-        />  
+        onChange={(e)=>(setuserName(e.target.value))}/>  
         <br/>
         <br/>
         
@@ -46,7 +44,7 @@ const Login=()=>{
         />
        <br/>
        <br/>
-        <button type="Submit">Login</button>
+        <Link to={`/products/`}><button type="Submit">Login</button></Link>
         </form>
        </div>
     )   
