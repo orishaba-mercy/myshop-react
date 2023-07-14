@@ -10,7 +10,7 @@ const NavBar =()=>{
             <ul>
                 <a href="/login">Login</a>
                 <a href="/products">Products</a>
-                <a href="">Add Products</a>
+                {/* <a href="add-products">Add Products</a> */}
                 
             
             </ul>
